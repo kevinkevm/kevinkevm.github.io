@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <!-- Unlock Screen -->
+    <div id="unlock-screen">
+        <h1>Enter the Special Date 💕</h1>
+        <p><i>Don't forget to turn your volume up!</i></p>
+        <input type="date" id="date-input"> <br><br>
+        <button onclick="checkDate()">Unlock</button>
+        <p id="error-message"></p>
+    </div>
 
+    <!-- Main Content (Hidden Until Unlocked) -->
+    <div id="content" class="hidden">
+        <h1>Happy Valentine's Day! 💖</h1>
+        <!-- Infinite Scroll Section -->
+        <div id="scroll-container">
+            <p>Scroll down for a cute surprise! 🎁</p>
+            <div class="scroll-item">You're the best thing that ever happened to me! 💕 Let's walk through memory lane and see how we spent a little bit more than a year together.</div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img2.JPG" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>Where did we first meet? 🥰</p>
+                <button onclick="answerQuiz(this, true)">School Lobby</button>
+                <button onclick="answerQuiz(this, false)">Canteen</button>
+                <button onclick="answerQuiz(this, false)">MPH</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="scroll-item">Ever since then I have cherished every single second I get to talk to you ✨</div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img3.gif" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>Describe me in one word! 💖</p>
+                <input type="text" id="open-ended-answer">
+                <button onclick="submitOpenAnswer()">Submit</button>
+                <div class="scroll-item">My Turn!!! If I would describe you with one word it would be Perfect! 💗</div>
+                <span class="feedback"></span>
+            </div>
+            <!-- Additional Questions -->
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img4.png" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>What Color did I wear when we took that photo in Chinese New Year! 🌈</p>
+                <button onclick="answerQuiz(this, false)">Gold</button>
+                <button onclick="answerQuiz(this, true)">Red</button>
+                <button onclick="answerQuiz(this, false)">Pink</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="scroll-item">You looked amazing there, I fell in love with you every time I gazed my eyes upon you! 😘</div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img5.JPG" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>What four-letter word did we keep calling each other with?</p>
+                <button onclick="answerQuiz(this, false)">Dumb</button>
+                <button onclick="answerQuiz(this, false)">Dude</button>
+                <button onclick="answerQuiz(this, true)">Heng</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="scroll-item">You make my heart skip a beat! 💓</div>
+            <div class="scroll-item fade-in">
+                <img src="img1.gif" alt="Cute Picture" class="fade-in-image">
+            </div>
+            <div class="quiz-question">
+                <p>What food did we eat together at lunch in school?</p>
+                <button onclick="answerQuiz(this, false)">Pizza</button>
+                <button onclick="answerQuiz(this, true)">Sushi</button>
+                <button onclick="answerQuiz(this, false)">Burger</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="scroll-item">I love you more than words can say! 💞</div>
+            <div class="scroll-item fade-in">
+                <img src="img6.PNG" alt="Cute Picture" class="fade-in-image">
+            </div>
+            <div class="quiz-question">
+                <p>What is the first song we added to our playlist! 🎶 No Cheating!!!</p>
+                <button onclick="answerQuiz(this, true)">Always - Daniel Caesar</button>
+                <button onclick="answerQuiz(this, false)">Anything You Want - Reality Club</button>
+                <button onclick="answerQuiz(this, false)">Nothing - Bruno Major</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="scroll-item">You are my sunshine on a cloudy day! ☀️</div>
+            <!-- New Questions -->
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img7.JPG" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>What team were we facing when we watched that DBL Match Beside Each Other! 🏀</p>
+                <input type="text" id="open-ended-answer">
+                <button onclick="submitOpenAnswer()">Submit</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="scroll-item">I want to tie your shoelaces again!!! ❤️‍🩹</div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img8.gif" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>What sport did we play in the MPH when we laughed so hard until you sakit perut!!! 😭</p>
+                <button onclick="answerQuiz(this, false)">Dodgeball</button>
+                <button onclick="answerQuiz(this, false)">Basketball</button>
+                <button onclick="answerQuiz(this, true)">Badminton</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img9.JPG" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>What is our dream concert to watch together?</p>
+                <button onclick="answerQuiz(this, true)">Cigarettes After Sex</button>
+                <button onclick="answerQuiz(this, false)">Laufey</button>
+                <button onclick="answerQuiz(this, false)">Arctic Monkeys</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img10.JPG" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>What mall did we start our first date in! 💞</p>
+                <button onclick="answerQuiz(this, true)">Delipark</button>
+                <button onclick="answerQuiz(this, false)">Sun Plaza</button>
+                <button onclick="answerQuiz(this, false)">Centre Point</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="quiz-question">
+                <p>Finish the Sentence!!! You are my... 🌌</p>
+                <div class="scroll-item fade-in">
+                    <img src="img11.JPG" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <button onclick="answerQuiz(this, true)">Everything</button>
+                <button onclick="answerQuiz(this, true)">Universe</button>
+                <button onclick="answerQuiz(this, true)">World</button>
+                <span class="feedback"></span>
+            </div>
+            <div class="quiz-question">
+                <div class="scroll-item fade-in">
+                    <img src="img12.gif" alt="Cute Picture" class="fade-in-image">
+                </div>
+                <p>Where will our DREAM WEDDING be!?! 👰🏻‍♀️</p>
+                <button onclick="answerQuiz(this, false)">Bali</button>
+                <button onclick="answerQuiz(this, false)">Hawaii</button>
+                <button onclick="answerQuiz(this, true)">Italy</button>
+                <span class="feedback"></span>
+            </div>
+            
+
+            <!-- Wordle Game -->
+            <div class="scroll-item">
+                <h1>Wordle Break! 📕</h1>
+                <p>HMMMM... It's Something Only the two of us Understand! </p>
+                <div id="grid"></div>
+                <input type="text" id="guess-input" maxlength="7" placeholder="Enter your guess">
+                <button onclick="submitGuess()">Submit</button>
+                <p id="message"></p> </div>
+
+            <div>
+            <div class="scroll-item">I love you soo much my baby. You do not understand how much you mean to me. <br> From the moment I wakeup till the moment I Close my eyes to sleep I am always thinking about you. You are the greatest gift from this universe and I will cherish you and treat you like the princess you are. <br> I am sorry for my flaws and I promise I will work to fix them because I dont want to lose you. Happy Valentines Babe, I love you, so soo much.</div>
+            </div>
+            
+                
+         
+
+        <!-- Score Reveal -->
+        <div id="score-section">
+            <h2>Your Final Score: <span id="score">0</span> 🎉</h2>
+            <p id="final-message"></p>
+            <button onclick="restart()">Try Again?</button>
+        </div>
+    </div>
+
+    
+
+    <audio id="chime" src="correct_chime.wav"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
